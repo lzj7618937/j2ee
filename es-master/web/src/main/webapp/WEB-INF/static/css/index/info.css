@@ -1,0 +1,445 @@
+
+.product-price
+{
+	color:#ff5a5f;
+}
+
+/*题目*/
+.product-title
+{
+	font-size:18px;
+	color:#000;
+}
+
+.well-box
+{
+	margin-top:25px;
+	background-color:#f5f5f5;
+	padding:15px 25px;
+}
+
+.well-box table
+{
+	border-collapse: separate;
+	border-spacing:0px 4px;
+}
+
+.well-box tr
+{
+	margin-top:125px;
+}
+
+.well-box .t
+{
+	width:100px;
+	color:#999;
+	font-size:13px;
+}
+
+
+/*顶部banner*/
+.top-banner,
+.top-banner-c
+{
+	margin-top:10px;
+	font-size:13px;
+	color:#666;
+}
+
+/*轮播图*/
+.picFocus {
+	width: 580px;
+	height: 400px;
+	position: relative;
+	overflow: hidden;
+	zoom: 1;
+}
+
+.picFocus .bd li {
+	vertical-align: middle;
+}
+
+.picFocus .bd img {
+	width: 100%;
+	height: auto;
+	min-height: 400px;
+	display: block;
+}
+
+.picFocus .hd {
+	width: 100%;
+	overflow: hidden;
+}
+
+.picFocus .hd ul {
+	margin-right: -5px;
+	overflow: hidden;
+	zoom: 1;
+}
+
+.picFocus .hd ul li {
+	float: left;
+	text-align: center;
+}
+
+.picFocus .hd ul li img {
+	width: 109px;
+	height: 65px;
+	border: 2px solid #ddd;
+	cursor: pointer;
+	margin-right: 5px;
+}
+
+.picFocus .hd ul li.on {
+	background: url("images/icoUp.gif") no-repeat center 0;
+}
+
+.picFocus .hd ul li.on img {
+	border-color: #ff5a5f;
+}
+
+.picFocus .hd {
+	position: absolute;
+	bottom: 0;
+	padding: 5px;
+	background: rgba(0, 0, 0, 0.6);
+}
+
+/*标签*/
+.product-labels
+{
+	height:65px;
+	padding-top:30px;
+}
+
+.product-label
+{
+	padding:2px 10px;
+	border:1px solid #FF5A5F;
+	font-size:13px;
+	color:#FF5A5F;
+	background:#FFF;
+	margin-right:5px;
+}
+.product-label:first-child
+{
+	background:#FF5A5F;
+	color:#fff;
+}
+
+/*轮播图*/
+.top-banner #slide-img
+{
+	width:580px;
+	height:400px;
+	overflow:hidden;
+	float:left;
+}
+
+.top-banner #slider-img img
+{
+	height:400px;
+	width:580px;
+}
+
+.top-banner .top-right
+{
+	height:400px;
+	width:380px;
+	float:left;
+	padding-left:30px;
+}
+
+.top-banner .top-right .product-price
+{ 
+	font-size:30px;
+	line-height:30px;
+	padding:15px 5px;
+}
+
+/*轮播图(日历版)*/
+.top-banner-c #slide-img
+{
+	width:510px;
+	height:400px;
+	overflow:hidden;
+	float:left;
+}
+
+.top-banner-c #slider-img img
+{
+	height:400px;
+	width:500px;
+}
+
+.top-banner-c .top-right
+{
+	height:400px;
+	width:450px;
+	float:left;
+	padding-left:30px;
+}
+
+.top-banner-c .top-right .product-price
+{ 
+	font-size:30px;
+	line-height:30px;
+	padding:15px 5px;
+}
+
+.tab
+{
+	margin:25px 0;
+	background-color:#fff;
+	overflow:hidden;
+}
+
+.tab li 
+{
+	float:left;
+	border:1px solid #EEE;
+}
+
+.tab li a
+{
+	color:#777;
+}
+
+.nav > li > a {
+	padding: 15px 60px;
+}
+
+.tab li.active
+{
+	background-color:#FF5A5F;
+	border:1px solid #FF5A5F;
+}
+
+.tab li.active a
+{
+	color:#FFF;
+}
+
+ul.affix {
+	top: 0px;
+	margin-top:0px;
+	z-index:900;
+}
+
+.description
+{
+	height:122px;
+	padding:8px;
+	color:#888;
+}
+
+/*详细*/
+.detail
+{
+	padding-left:6px;
+	padding-top:15px;
+}
+
+/*详细 标题*/ 
+.detail-title
+{
+	padding:15px 0;
+	font-size:17px;
+	color:#ff5a5f;
+}
+
+.detail-title img
+{
+	margin-top:-5px;
+	width:25px;
+}
+
+/*详细 内容*/ 
+.detail-content
+{
+	padding:0 21px;
+	color:#666;
+}
+
+/*导游信息*/
+.guide-info
+{
+	float:left;
+	margin-right:20px;
+	width:320px;
+	
+}
+
+/*头像*/
+.guide-info .avatar
+{
+	width:120px;
+}
+
+.guide-info .avatar img
+{
+	width:120px;
+	height:120px;
+	float:left;
+}
+
+.guide-info .item
+{
+	width:200px;
+	padding:15px;
+	float:left;
+	padding-top:10px;
+	padding-left:40px;
+}
+
+.guide-info .item .nickname
+{
+	color:#999;
+	font-size:16px;
+	padding:8px 0;
+}
+
+.guide-info .item .work
+{
+	color:#999;
+	font-size:13px;
+	padding-bottom:12px;
+}
+
+.guide-info .item .guide-detail
+{
+	color:#ff5a5f;
+	padding:6px 8px;
+	border:1px solid #ff5a5f;
+	border-radius: 6px;
+}
+
+/*时间轴*/
+.route-line
+{
+	
+}
+
+.route-line li
+{
+	border-left: 1px solid #aaa;
+	padding-left: 26px;
+	padding-bottom: 25px;
+	padding-top: 5px;
+	color: #333;
+	position: relative;
+}
+
+.route-line li .route-icon
+{
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	top: 0;
+	left: -15px;
+	background-color:#fff;
+	font-size:16px;
+	text-align: center;
+	color:#ff5a5f;
+}
+
+.product-form .form-item
+{
+	border-radius: 0px;
+	margin-top:15px;
+}
+
+.has-feedback-left {
+    position: relative;
+}
+
+.has-feedback-left .controls {
+    padding-top:4px;
+    padding-bottom:4px;
+}
+
+.has-feedback-left .form-control-feedback
+{
+	top: 0px;
+	left: 15px;
+	width:60px;
+	text-align:center;
+	font-size:15px;
+	color:#AAA;
+}
+
+.has-feedback-left .form-control
+{
+	padding-left:120px;
+}
+
+.sence img
+{
+	height:200px;
+	float:left;
+	margin: 5px 5px;
+}
+
+#book-model .modal-content
+{
+	border-radius: 0px;
+	padding:0 30px 20px 30px;
+}
+
+#book-model .book-model-head
+{
+	padding:25px 0px;
+	font-size:18px;
+}
+
+#book-model .book-form
+{
+	padding-top:20px;
+}
+
+.submit-btn
+{
+	margin-top:25px;
+	width:80%;
+	border-radius: 6px;
+}
+
+.form-item
+{
+	border-radius: 0px;
+}
+/*酒店信息*/
+#about-hotel .detail-content img
+{
+	height:130px;
+	width:auto;
+	margin-bottom:5px;
+	margin-right:5px;
+}
+
+@media (max-width:440px){
+
+	#about-hotel .detail-content img
+	{
+		height:auto;
+		width:240px;
+	}
+
+}
+
+.product-breadcrumb
+{
+	height:10px;
+	clear:both;
+}
+body
+{
+	background-color:#f8f8f8;
+}
+
+.container
+{
+	background-color:#fff;
+	margin-top:30px;
+}

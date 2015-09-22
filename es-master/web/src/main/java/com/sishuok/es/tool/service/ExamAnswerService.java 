@@ -1,0 +1,18 @@
+package com.sishuok.es.tool.service;
+
+import com.sishuok.es.common.service.BaseService;
+
+import com.sishuok.es.tool.entity.ExamAnswer;
+
+import org.springframework.stereotype.Service;
+
+/**
+* exam_answer 服务类 
+* <p>User: jaylee 
+* <p>Date: Wed May 20 11:17:20 CST 2015 
+* <p>Version: 1.0 
+*/ 
+@Service
+public class ExamAnswerService extends BaseService<ExamAnswer, Long> {
+}
+

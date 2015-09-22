@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no"/>
+
+    <!-- 触发双核浏览器使用 chrome 内核 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="renderer" content="webkit"/>
+
+    <link th:href="@{/static/images/index/pls_logo.jpg}" rel="icon" type="image/x-icon"/>
+    <link th:href="@{/static/images/index/pls_logo.jpg}" rel="shortcut icon" type="image/x-icon"/>
+    <link th:href="@{/static/images/index/pls_logo.jpg}" rel="bookmark" type="image/x-icon"/>
+
+    <!--[if gte IE 9]-->
+    <script th:src="@{/static/comp/jquery-2.1.4.js}"></script>
+    <!--[endif]-->
+
+    <!--[if lt IE 9]>
+    <script th:src="@{/static/comp/html5shiv/html5shiv.min.js}"></script>
+    <script th:src="@{/static/comp/respond/respond.min.js}"></script>
+    <script th:src="@{/static/comp/jquery-1.11.3.js"></script>
+    <![endif]-->
+
+    <script th:src="@{/static/comp/bootstrap-3.3.5/dist/js/bootstrap.min.js}"></script>
+    <link th:href="@{/static/comp/bootstrap-3.3.5/dist/css/bootstrap.min.css}" rel="stylesheet"/>
+    <script th:src="@{/static/comp/My97DatePicker/WdatePicker.js}"></script>
+    <link th:href="@{/static/comp/Font-Awesome-master/css/font-awesome.min.css}" rel="stylesheet"/>
+    <link th:href="@{/static/comp/icheck-1.x/skins/all.css}" media="all" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" th:src="@{/static/comp/icheck-1.x/icheck.min.js}"></script>
+    <link th:href="@{/static/css/index/jquery.mailAutoComplete-4.0.css}" media="all" rel="stylesheet" type="text/css"/>
+    <script th:src="@{/static/js/index/jquery.mailAutoComplete-4.0.js}"></script>
+
+    <script th:src="@{/static/js/index/common.js}" type="text/javascript"></script>
+    <link rel="stylesheet" th:href="@{/static/css/index/common_plan.css}"/>
+    <script type="text/javascript" th:src="@{/static/js/underscore-min.js}"></script>
+    <link th:href="@{/static/css/index/create.css}" rel="stylesheet"/>
+    <link th:href="@{/static/css/index/datepicker_plan.css}" media="all" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/static/css/index/magicsuggest_plan.css}"/>
+    <script th:src="@{/static/js/index/touchslider.2.1.js}"></script>
+    <script th:src="@{/static/js/index/zlDate_plan.js}"></script>
+    <title>仙贝旅行 | 发布旅行计划</title>
+
+</head>
+<body>
+<link rel="stylesheet" th:href="@{/static/css/index/header.css}"/>
+<div style="overflow: hidden;height: 0px;width: 0px;">
+    <img alt="缩略图实验" th:src="@{/static/images/index/mm.jpg}"/>
+</div>
+<div class="header">
+    <nav class="navbar navbar-default" role="navigation" style="margin: 0 30px;">
+        <div class="head-bar">
+
+            <div class="navbar-header">
+
+                <h1 class="logo navbar-brand">
+                    <a href="index.html">
+                        <img th:src="@{/static/images/index/logo.png}" alt="仙贝旅行"/>
+                    </a>
+                </h1>
+
+                <button type="button" class="navbar-toggle collapsed"
+                        data-toggle="collapse" data-target="#main-menu">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+            </div>
+            <div class="header-search-bar pull-left hidden-xs">
+                <!--=S 发布旅行计划=-->
+
+                <input type="hidden" name="city" id="dests" value=""/>
+
+                <form action="guide/list" id="form" method="POST">
+                    <div class="search-box" style="background-color: #FFF;">
+                        <div class="pub-ipt-city">
+
+                            <input id="trip-place-h" name="dests[]" type="text" class="pub-ipt j_city form-control"
+                                   placeholder="想去哪玩？"/>
+                        </div>
+                        <div class="submit-box" style="background-color: #fff;" onclick="submit()">
+                            <img th:src="@{/static/images/index/fangdajing.png}" alt="查找" id="location_choose"
+                                 class="header_img"/>
+                        </div>
+                    </div>
+                    <div class="div_1" style="display: none;">
+                    </div>
+                </form>
+                <!--=S 发布旅行计划=-->
+            </div>
+
+            <ul class="nav navbar-nav navbar-right pull-right text-center hidden-xs">
+
+                <div class="header-div">
+                    <a class="header-a" data-toggle="modal" href="#login-panel">登录/注册</a>
+                </div>
+                <div class="header-div header-help">
+                    <a class="header-a" href="faq/1" id="help">帮助&nbsp;<i class="fa fa-caret-down"></i></a>
+
+                    <div class="help-list" style="display: none;">
+                        <ul class="">
+                            <li><a href="faq/1" style="color:#ff5a5f">访问帮助中心</a></li>
+                            <li><a href="faq/1">关于仙贝旅行</a></li>
+                            <li><a href="faq/2">如何定制行程？</a></li>
+                            <li><a href="faq/3">成为仙贝的导游</a></li>
+                            <li><a href="faq/4">费用说明</a></li>
+                            <li><a href="faq/6">退款政策</a></li>
+                        </ul>
+                        <i class="top"></i>
+                    </div>
+                </div>
+                <div class="header-div">
+                    <a href="plan/create" class="xb-btn-m-org">行程定制</a>
+                </div>
+                <script>
+                    (function ($) {
+                        $(function () {
+                            $(".header-help").mousemove(function () {
+                                $(".help-list").show();
+                            });
+                            $(".header-help").mouseleave(function () {
+                                $(".help-list").hide();
+                            })
+                        });
+                    })(jQuery);
+                </script>
+            </ul>
+
+            <div class="clearfix"></div>
+        </div>
+
+    </nav>
+</div>
+<div class="clearfix"></div>
+
+
+<div class="modal fade in" id="login-panel" tabindex="-1" role="dialog" aria-labelledby="login-title"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="login-title">通过以下方式登录</h4>
+            </div>
+
+            <div class="row modal-body">
+                <div class="col-md-12">
+                    <span class="help-block user-pw-input">使用第三方平台账号登录</span>
+
+                    <div class="text-center" style="padding:3px 0 20px 0">
+                        <a href="openid/qq/login" class="btn btn-lg btn-primary" style="width:130px;margin-right:8px;">
+                            <i class="fa fa-qq"></i> QQ登陆
+                        </a><a
+                            href="openid/weibo/login" class="btn btn-lg btn-danger" style="width:130px">
+                        <i class="fa fa-weibo"></i> 微博登陆
+                    </a>
+                    </div>
+                </div>
+                <hr/>
+                <div class="col-md-12">
+	               	
+	            	<span class="help-block user-pw-input">
+	            		<span>仙贝账号&nbsp;&nbsp;&nbsp;&nbsp;</span>
+	            		<a aria-hidden="true" data-dismiss="modal" data-toggle="modal" href="#register-panel"></a>
+	            	</span>
+
+                    <div class="clearfix"></div>
+                    <form class="form-horizontal" role="form" method="post" action="login">
+                        <fieldset>
+                            <div class="input-group user-pw-input">
+	                            <span class="input-group-addon"> <i class="glyphicon glyphicon-envelope"></i>
+	                            </span>
+                                <input id="login-username" type="text" class="form-control" name="username"
+                                       required="required" value="" placeholder="邮箱"/>
+                            </div>
+                            <div class="input-group user-pw-input">
+	                            <span class="input-group-addon"> <i class="glyphicon glyphicon-lock"></i>
+	                            </span>
+                                <input type="password" class="form-control" name="password" required="required"
+                                       placeholder="密码"/>
+                            </div>
+
+                            <div class="input-group user-pw-input">
+	                            <span class="button-checkbox">
+	                                <input type="checkbox" class="iCheck" checked="true" />记住登录状态</span>
+
+                                <div class="pull-right"><a href="password/forget">忘记密码?</a></div>
+
+                            </div>
+                            <script type="text/javascript">
+                                document.write('<input type="hidden" name="BackURL" value="' + window.location.href + '"/>');
+                            </script>
+                            <div class="form-group">
+                                <div class="controls user-pw-btn">
+                                    <button class="btn btn-danger form-control">登录</button>
+                                </div>
+                            </div>
+
+                        </fieldset>
+                    </form>
+                </div>
+                <!-- end modal-body -->
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<div class="modal fade" id="register-panel" tabindex="-1" role="dialog" aria-labelledby="register-title"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="register-title">您可以通过以下方式注册！</h4>
+            </div>
+
+            <div class="row modal-body">
+                <div class="col-md-12">
+                    <span class="help-block user-pw-input">使用第三方平台账号登录</span>
+
+                    <div class="text-center" style="padding:3px 0 20px 0">
+                        <a href="openid/qq/login" class="btn btn-lg btn-primary" style="width:130px;margin-right:8px;">
+                            <i class="fa fa-qq"></i> QQ登陆
+                        </a><a
+                            href="openid/weibo/login" class="btn btn-lg btn-danger" style="width:130px">
+                        <i class="fa fa-weibo"></i> 微博登陆
+                    </a>
+                    </div>
+                </div>
+                <hr/>
+               <span class="help-block user-pw-input">
+               		<span>使用邮箱注册仙贝账号&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            		<a href="password/forget">忘记密码?</a>
+            	</span>
+
+                <form class="form-horizontal" role="form" action="register" method="POST">
+                    <fieldset>
+                        <div class="input-group user-pw-input">
+                            <span class="input-group-addon"> <i class="glyphicon glyphicon-envelope"> </i> 
+                            </span>
+                            <input id="reg-username" type="text" class="form-control" name="email" value=""
+                                   placeholder="邮箱"/>
+                        </div>
+                        <div class="input-group user-pw-input">
+                            <span class="input-group-addon"> <i class="glyphicon glyphicon-lock"> </i> 
+                            </span>
+                            <input type="password" class="form-control" name="password" placeholder="密码" value=""/>
+                        </div>
+                        <div class="input-group user-pw-input">
+                            <span class="input-group-addon"> <i class="glyphicon glyphicon-lock"> </i> 
+                            </span>
+                            <input type="password" class="form-control" name="password2" placeholder="重复密码" value=""/>
+                        </div>
+                        <div class="input-group user-pw-input">
+                            <span class="input-group-addon"> <i class="glyphicon glyphicon-user"> </i> 
+                            </span>
+                            <input value="" type="text" class="form-control" name="nickname"
+                                   placeholder="昵称(中文12个字,英文24个字符以内)"/>
+                        </div>
+                        <div class="form-group">
+                            <div class="controls user-pw-btn">
+                                <button class="btn btn-danger form-control">
+                                    快速注册
+                                </button>
+                            </div>
+                        </div>
+
+                    </fieldset>
+                </form>
+            </div>
+            <!--modal-footer-->
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<script type="text/javascript">
+    (function ($) {
+        $('#reg-username').mailAutoComplete();
+        $('#login-username').mailAutoComplete();
+
+        $(function () {
+            $("#form").mousemove(function () {
+                $(".div_1").show();
+            });
+            $("#form").mouseleave(function () {
+                $(".div_1").hide();
+            })
+        });
+        var dests = $("#dests").val();
+        $.ajax({
+            url: "common/ajaxGuideDest",
+            async: true,
+            cache: false,
+            global: false,
+            dataType: "json",
+            success: function (data) {
+
+            }
+        });
+
+
+    })(jQuery);
+    function selectCity(obj) {
+        var name = $(obj).attr('name');
+        var id = $(obj).attr('destid');
+        $("#dests").val(id);
+        $("#trip-place-h").val(name);
+        $(".on").removeClass("on");
+        $(obj).addClass("on");
+    }
+    function submit() {
+        $('#form').submitForm();
+    }
+</script>
+<div class="container">
+    <div class="form-scroll" style="width: 606px;height:505px">
+        <div id="carousel-top" class="f slide">
+            <div class="hd">
+                <ul></ul>
+            </div>
+            <div class="bd">
+                <form action="plan/ct" method="post" id="form_plan">
+                    <ul style="max-height: 400px;" id="slider">
+                        <li>
+                            <div class="page">
+                                <div class="content">
+                                    <div class="title">仙贝专属行程定制</div>
+                                    <div class="info">
+                                        <div class="line_left"></div>
+                                        <div class="second">只需30秒</div>
+                                        <div class="line_right"></div>
+                                    </div>
+                                    <div class="margin"></div>
+                                    <div class="form">
+                                        <div class="tr cols2">
+                                            <div class="th">选择目的地城市</div>
+                                            <div class="td ">
+                                                <div class="ms-sel-ctn pull_left">
+                                                    <input type="text" class="large" id="city" widthNum="351"
+                                                           readOnly="readOnly"/>
+                                                </div>
+                                                <div class="pull_right icon down">
+                                                    <i class="fa fa-caret-down gray down"></i>
+                                                </div>
+                                            </div>
+                                            <div class="dest" style="display:none">
+                                                <div class="div_2">
+                                                    <div class="city h" onclick="chooseCity(this)" name="东京"
+                                                         destid="13">
+                                                        <span style="color: #666666">东京</span>
+                                                    </div>
+                                                    <div class="city h" onclick="chooseCity(this)" name="富士山"
+                                                         destid="40">
+                                                        <span style="color: #666666">富士山</span>
+                                                    </div>
+                                                    <div class="city h" onclick="chooseCity(this)" name="大阪"
+                                                         destid="46">
+                                                        <span style="color: #666666">大阪</span>
+                                                    </div>
+                                                    <div class="city h " style="border-right: 0px solid #fff;"
+                                                         onclick="chooseCity(this)" name="京都" destid="45">
+                                                        <span style="color: #666666">京都</span>
+                                                    </div>
+                                                    <div class="city h" onclick="chooseCity(this)" name="奈良"
+                                                         destid="50">
+                                                        <span style="color: #666666">奈良</span>
+                                                    </div>
+                                                    <div class="city h" onclick="chooseCity(this)" name="北海道"
+                                                         destid="1">
+                                                        <span style="color: #666666">北海道</span>
+                                                    </div>
+                                                    <div class="city h" onclick="chooseCity(this)" name="冲绳"
+                                                         destid="69">
+                                                        <span style="color: #666666">冲绳</span>
+                                                    </div>
+                                                    <div class="city h " style="border-right: 0px solid #fff;"
+                                                         onclick="chooseCity(this)" name="箱根" destid="31">
+                                                        <span style="color: #666666">箱根</span>
+                                                    </div>
+                                                    <div class="city h" onclick="chooseCity(this)" name="神户"
+                                                         destid="48">
+                                                        <span style="color: #666666">神户</span>
+                                                    </div>
+                                                    <div class="city h" onclick="chooseCity(this)" name="名古屋"
+                                                         destid="42">
+                                                        <span style="color: #666666">名古屋</span>
+                                                    </div>
+                                                    <div class="city h" onclick="chooseCity(this)" name="九州"
+                                                         destid="76">
+                                                        <span style="color: #666666">九州</span>
+                                                    </div>
+                                                    <div class="city h " style="border-right: 0px solid #fff;"
+                                                         onclick="chooseCity(this)" name="其他" destid="218">
+                                                        <span style="color: #666666">其他</span>
+                                                    </div>
+                                                    <div class="xb-btn-m-org ok">确定</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="error" id="city_warn">
+                                            请选择您想去的城市
+                                        </div>
+                                        <div class="tr cols2 zldate">
+                                            <div class="td">
+                                                <div class="th" style="width: 156px;">选择出发日期</div>
+                                                <input type="text" class="large" readonly="readonly" id="beginDate"
+                                                       name="courses[0].start"/>
+
+                                                <div class="pull_right icon bgDate">
+                                                    <i class="fa fa-caret-down gray bgDate"></i>
+                                                </div>
+                                            </div>
+                                            <div class="error" id="beginDate_warn">
+                                                请选择您的出发日期
+                                            </div>
+                                        </div>
+                                        <div class="tr">
+
+                                            <div class="td">
+                                                <div class="t2">游玩天数</div>
+                                                <input type="text" class="small" id="playDay" name="days"/>
+
+                                                <div class="pull_right icon margin">天</div>
+                                            </div>
+                                            <div class="error day" id="playDay_warn">
+                                                请选择您的游玩天数
+                                            </div>
+                                            <div class="menu menu_left" onselectstart="return false">
+                                                <div class="add a">
+                                                    <i class="fa  fa-plus gray a"></i>
+                                                </div>
+                                                <div class="del a">
+                                                    <i class="fa fa-minus gray a"></i>
+                                                </div>
+                                            </div>
+                                            <div class="td"></div>
+                                            <div class="t2 pullright">人数</div>
+                                            <div class="td">
+                                                <input type="text" class="small" id="num" name="mateNumber"/>
+                                            </div>
+                                            <div class="td icon margin">人</div>
+                                            <div class="error num" id="num_warn">
+                                                请选择您的出行人数
+                                            </div>
+                                            <div class="menu menu_right" onselectstart="return false">
+                                                <div class="add a">
+                                                    <i class="fa  fa-plus gray a"></i>
+                                                </div>
+                                                <div class="del a">
+                                                    <i class="fa fa-minus gray a"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="next" id="next">下一步</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="page" id="page2">
+                                <div class="content">
+                                    <div class="form">
+                                        <div style="padding-top: 1px;clear:both"></div>
+                                        <div class="tr cols2">
+                                            <div class="td">
+                                                <div class="th common">您的姓名</div>
+                                                <input type="text" class="username commonheight pull_left"
+                                                       placeholder="姓名" id="username" name="realName"/>
+
+                                                <div class="pull_right radio commonheight">
+                                                    <input type="radio" name="gender" checked="true" value="M"/>先生&nbsp;&nbsp;
+                                                    <input type="radio" name="gender" value="F"/>女士
+                                                </div>
+                                            </div>
+                                            <div class="error" id="username_warn">
+                                                请选择您的姓名
+                                            </div>
+                                        </div>
+                                        <div class="tr cols2">
+                                            <div class="td">
+                                                <div class="th common ">手机号码</div>
+                                                <input type="text" class="phone commonheight" name="mobile"
+                                                       placeholder="支持中国大陆和日本号码" id="phone"/>
+                                            </div>
+                                            <div class="error" id="phone_warn">
+                                                请输入手机号
+                                            </div>
+                                        </div>
+                                        <div class="tr cols2">
+                                            <div class="td">
+                                                <div class="th common ">微信/QQ</div>
+                                                <input type="text" class="wechat commonheight" name="qqOrWeChat"
+                                                       placeholder="微信/QQ" id="WechatQQ"/>
+                                            </div>
+                                            <div class="error" id="weChat_warn">
+                                                请输入微信或QQ
+                                            </div>
+                                        </div>
+                                        <div class="tr cols2">
+                                            <div class="td">
+                                                <textarea class="land" name="note" placeholder="备注"
+                                                          id="remark"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="button">
+                                            <div class="previous" id="prev">上一步</div>
+                                            <div class="submit" id="submit">提交</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="page " id="page3">
+                                <div class="content">
+                                    <div class="form">
+                                        <div style="padding-top: 1px;"></div>
+                                        <div class="tr cols2">
+                                            <div class="td">
+                                                <div class="head">
+                                                    <img th:src="@{/static/images/index/logo_plan.png}"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tr cols2">
+                                            <div class="td filed">
+                                                您的需求已经提交成功
+                                            </div>
+                                        </div>
+                                        <div class="tr cols2">
+                                            <div class="td filed ">
+                                                专属顾问将在24小时之内与您取得联系
+                                            </div>
+                                        </div>
+                                        <div class="tr cols2 margin">
+                                            <a href="product/list?labels=3">
+                                                <div class="bc">包车畅游</div>
+                                            </a>
+                                            <a href="product/list?labels=8">
+                                                <div class="js">机场接送</div>
+                                            </a>
+                                        </div>
+                                        <div class="button">
+                                            <a href="index.html">
+                                                <div class="back" id="back">返回首页</div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+        <script type="text/javascript">
+            slider
+            $(function () {
+                slider = new TouchSlider('slider', {
+                    duration: 800,
+                    interval: 3000,
+                    direction: 0,
+                    autoplay: false,
+                    mousewheel: false,
+                    mouse: false,
+                    fullsize: true
+                });
+            });
+        </script>
+        <script>
+            $(document).ready(function () {
+                $('input').iCheck({
+                    checkboxClass: 'icheckbox_square-red',
+                    radioClass: 'iradio_square-red',
+                    increaseArea: '10%'
+                });
+            });
+        </script>
+        <script th:src="@{/static/js/index/create.js}"></script>
+    </div>
+</div>
+<div style="margin-top: -20%">
+    <div class="model">
+    </div>
+    <div class="block">
+        <div class="close">
+            <!-- <i class="fa fa-remove-sign gray"></i> -->
+            <img th:src="@{/static/images/index/close.jpg}" width="30px"/>
+        </div>
+        <div class="pull_left"><img th:src="@{/static/images/index/logo_plan.png}" width="60px"/></div>
+        <div class="pull_right">
+            <div class="send_info">验证码已发送到您的手机</div>
+            <div class="mobile"></div>
+        </div>
+        <div class="input">
+            <input type="input" id="mobile_code" placeholder="请输入验证码"/>
+
+            <div class="code_error">输入错误，验证码已重新发送</div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

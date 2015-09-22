@@ -1,0 +1,15 @@
+package com.sishuok.es.tool.repository;
+
+import com.sishuok.es.common.repository.BaseRepository;
+
+import com.sishuok.es.tool.entity.ExamAnswer;
+
+/**
+* exam_answer 数据操作类 
+* <p>User: jaylee 
+* <p>Date: Wed May 20 11:17:20 CST 2015 
+* <p>Version: 1.0 
+*/ 
+public interface ExamAnswerRepository extends BaseRepository<ExamAnswer, Long>{
+}
+

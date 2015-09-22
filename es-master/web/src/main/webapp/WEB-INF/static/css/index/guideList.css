@@ -1,0 +1,157 @@
+/*搜索框*/
+#guide-search-box {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.form-group {
+	margin-right: 40px;
+}
+
+/*--------------------------------------------------------------*/
+.collect-item {
+	width: 240px;
+	float: left;
+	padding: 8px 4px 12px 4px;
+	text-align: left;
+}
+
+.collect-item .collect-item-inner {
+	border: 1px solid #CCC;
+	background-color: #FFF;
+}
+
+.collect-item .collect-item-inner:hover {
+	border: 1px solid #ff5a5f;
+}
+
+.collect-item .cover {
+	height: 230px;
+	overflow: hidden;
+	position: relative;
+}
+
+.collect-item .cover-layer {
+	background: none repeat scroll 0% 0% rgba(0, 0, 0, 0.12);
+	height: 230px;
+	width: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+.collect-item .cover img {
+	min-width: 100%;
+	height: 230px;
+}
+
+.collect-item .avt {
+	height: 125px;
+	overflow: hidden;
+	padding: 8px 10px 0 16px;
+	font-size: 12px;
+}
+
+.collect-item .avt .nickname {
+	color: #666;
+	font-size: 14px;
+	padding-bottom: 8px;
+}
+
+.collect-item .avt .work {
+	color: #888;
+}
+
+.collect-item .avt .city {
+	color: #AAA;
+}
+
+.hr-line {
+	margin: 8px 0 8px 0;
+	line-height: 1px;
+	border-top: 1px solid #ddd;
+	text-align: center;
+	clear: both;
+}
+
+.text {
+	color: #AAA;
+	height: 20px;
+	overflow: hidden;
+}
+
+.price-lable {
+	display: inline;
+	text-align: center;
+	color: #AAA;
+}
+
+.price-lable b {
+	color: #666;
+}
+
+.price-lable
+:not
+ 
+(
+:last-child
+ 
+)
+{
+border-right
+:
+ 
+1
+px
+ 
+solid
+ 
+#ddd
+;
+
+
+}
+.collect-item .bg-hover {
+	width: 100%;
+	display: none;
+	vertical-align: middle;
+	line-height: 1.6em;
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 50px 25px;
+	height: 230px;
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled='true',
+		startColorstr='#99000000', endColorstr='#99000000');
+	background: rgba(0, 0, 0, 0.6);
+	font-size: 14px;
+}
+
+.collect-item .bg-hover:hover {
+	display: block;
+}
+
+.collect-item .bg-hover .text {
+	display: table-cell;
+	vertical-align: middle;
+	line-height: 1.6em;
+	color: #fff;
+}
+
+.collect-item  a:hover .bg-hover {
+	display: table;
+}
+
+body {
+	background-color: #f9f9f9;
+}
+
+.div_11 {
+	display: none;
+	margin-left: 615px;
+	border: 1px solid rgb(204, 204, 204);
+	background-color: #f8f8f8;
+	position: absolute;
+	z-index: 100;
+	border-radius: 4px;
+}

@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no"/>
+
+    <!-- 触发双核浏览器使用 chrome 内核 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="renderer" content="webkit"/>
+
+    <link th:href="@{/static/images/index/pls_logo.jpg}" rel="icon" type="image/x-icon"/>
+    <link th:href="@{/static/images/index/pls_logo.jpg}" rel="shortcut icon" type="image/x-icon"/>
+    <link th:href="@{/static/images/index/pls_logo.jpg}" rel="bookmark" type="image/x-icon"/>
+
+    <!--[if gte IE 9]-->
+    <script th:src="@{/static/comp/jquery-2.1.4.js}"></script>
+    <!--[endif]-->
+
+    <!--[if lt IE 9]>
+    <script th:src="@{/static/comp/html5shiv/html5shiv.min.js}"></script>
+    <script th:src="@{/static/comp/respond/respond.min.js}"></script>
+    <script th:src="@{/static/comp/jquery-1.11.3.js"></script>
+    <![endif]-->
+
+    <script th:src="@{/static/comp/bootstrap-3.3.5/dist/js/bootstrap.min.js}"></script>
+    <link th:href="@{/static/comp/bootstrap-3.3.5/dist/css/bootstrap.min.css}" rel="stylesheet"/>
+    <script th:src="@{/static/comp/My97DatePicker/WdatePicker.js}"></script>
+    <link th:href="@{/static/comp/My97DatePicker/skin/WdatePicker.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/static/comp/magicsuggest-master/magicsuggest-min.css}" rel="stylesheet"/>
+    <script th:src="@{/static/comp/magicsuggest-master/magicsuggest.js}"></script>
+    <link th:href="@{/static/comp/icheck-1.x/skins/all.css}" media="all" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" th:src="@{/static/comp/icheck-1.x/icheck.min.js}"></script>
+    <link th:href="@{/static/comp/Font-Awesome-master/css/font-awesome.min.css}" rel="stylesheet"/>
+    <link th:href="@{/static/css/index/jquery.mailAutoComplete-4.0.css}" media="all" rel="stylesheet" type="text/css"/>
+    <script th:src="@{/static/js/index/jquery.mailAutoComplete-4.0.js}"></script>
+
+    <script th:src="@{/static/js/index/common.js}" type="text/javascript"></script>
+    <link rel="stylesheet" th:href="@{/static/css/index/common_plan.css}"/>
+    <link th:href="@{/static/css/index/guideList.css}" media="all" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/static/css/index/searchpage.css}"/>
+
+    <script th:src="@{/static/js/index/typeahead.jquery.min.js}" type="text/javascript"></script>
+    <script th:src="@{/static/js/index/list.js}" type="text/javascript"></script>
+
+    <title> 在线导游 </title>
+
+</head>
+<body>
+<link rel="stylesheet" th:href="@{/static/css/index/header.css}"/>
+<div style="overflow: hidden;height: 0px;width: 0px;">
+    <img alt="缩略图实验" th:src="@{/static/images/index/mm.jpg}"/>
+</div>
+<div class="header">
+    <nav class="navbar navbar-default" role="navigation" style="margin: 0 30px;">
+        <div class="head-bar">
+
+            <div class="navbar-header">
+
+                <h1 class="logo navbar-brand">
+                    <a href="index.html">
+                        <img th:src="@{/static/images/index/logo.png}" alt="仙贝旅行"/>
+                    </a>
+                </h1>
+
+                <button type="button" class="navbar-toggle collapsed"
+                        data-toggle="collapse" data-target="#main-menu">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+            </div>
+            <div class="header-search-bar pull-left hidden-xs">
+                <!--=S 发布旅行计划=-->
+
+                <input type="hidden" name="city" id="dests" value="46"/>
+
+                <form action="http://xianbei.cc/guide/list" id="form" method="POST">
+                    <div class="search-box" style="background-color: #FFF;">
+                        <div class="pub-ipt-city">
+
+                            <input id="trip-place-h" name="dests[]" type="text" class="pub-ipt j_city form-control"
+                                   placeholder="想去哪玩？"/>
+                        </div>
+                        <div class="submit-box" style="background-color: #fff;" onclick="submit()">
+                            <img th:src="@{/static/images/index/fangdajing.png}" alt="查找" id="location_choose"
+                                 class="header_img"/>
+                        </div>
+                    </div>
+                    <div class="div_1" style="display: none;">
+                        <div style="background-color:#f0f0f0;padding:7px 0 7px 15px;color:#777">热门旅行目的地</div>
+                        <div class="div_2" style="border-top: 0px solid #e9e9e9;"><a
+                                href="http://xianbei.cc/guide/list?city=13">
+                            <div class="city"><span style="color:#666666">东京</span></div>
+                        </a><a href="http://xianbei.cc/guide/list?city=40">
+                            <div class="city center"><span style="color:#666666">富士山</span></div>
+                        </a><a href=".">
+                            <div class="city"><span style="color:#666666">大阪</span></div>
+                        </a></div>
+                        <div class="div_2"><a href="http://xianbei.cc/guide/list?city=45">
+                            <div class="city"><span style="color:#666666">京都</span></div>
+                        </a><a href="http://xianbei.cc/guide/list?city=50">
+                            <div class="city center"><span style="color:#666666">奈良</span></div>
+                        </a><a href="http://xianbei.cc/guide/list?city=1">
+                            <div class="city"><span style="color:#666666">北海道</span></div>
+                        </a></div>
+                        <div class="div_2"><a href="http://xianbei.cc/guide/list?city=69">
+                            <div class="city"><span style="color:#666666">冲绳</span></div>
+                        </a><a href="http://xianbei.cc/guide/list?city=31">
+                            <div class="city center"><span style="color:#666666">箱根</span></div>
+                        </a><a href="http://xianbei.cc/guide/list?city=48">
+                            <div class="city"><span style="color:#666666">神户</span></div>
+                        </a></div>
+                        <div class="div_2"><a href="http://xianbei.cc/guide/list?city=42">
+                            <div class="city"><span style="color:#666666">名古屋</span></div>
+                        </a><a href="http://xianbei.cc/guide/list?city=76">
+                            <div class="city center"><span style="color:#666666">九州</span></div>
+                        </a>
+
+                            <div class="city"><span style="color:#666666">&nbsp;</span></div>
+                        </div>
+                        <div class="citylines"></div>
+                        <div style="text-align: center;height: 40px;line-height: 40px;border-top: 1px solid #e9e9e9;">
+                            不确定去哪？我们为您<a href="http://xianbei.cc/plan/create" style="color:#ff5a5f">行程定制</a></div>
+                    </div>
+                </form>
+                <!--=S 发布旅行计划=-->
+            </div>
+
+            <ul class="nav navbar-nav navbar-right pull-right text-center hidden-xs">
+
+                <style>
+                    .nav .header-div {
+                        line-height: inherit;
+                    }
+                </style>
+                <div id="function-btn" class="pull-right">
+                    <div class="header-div">
+	<span class="dropdown">
+		<a data-toggle="dropdown" href="http://xianbei.cc/#">
+            <img th:src="@{/static/images/index/user.png}" id="header-avatar" class="img-circle"/>
+        </a>
+		<a data-toggle="dropdown" href="http://xianbei.cc/#">
+            <div id="header-username">/qz</div>
+            <span class="caret"></span>
+        </a>
+		<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="http://xianbei.cc/plan/my.html"> 我的旅行计划 </a>
+            </li>
+
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="http://xianbei.cc/guideApplyFast"> 成为导游 </a>
+            </li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="http://xianbei.cc/logout"> 退出 </a></li>
+        </ul>
+	</span>&nbsp;
+                        &nbsp;
+                    </div>
+                    <div class="header-div header-help" style="line-height: 45px;">
+                        <a class="header-a" href="http://xianbei.cc/faq/1" id="help">帮助&nbsp;<i
+                                class="fa fa-caret-down"></i></a>
+
+                        <div class="help-list" style="display: none;">
+                            <ul class="">
+                                <li><a href="http://xianbei.cc/faq/1" style="color:#ff5a5f">访问帮助中心</a></li>
+                                <li><a href="http://xianbei.cc/faq/1">关于仙贝旅行</a></li>
+                                <li><a href="http://xianbei.cc/faq/2">如何定制行程？</a></li>
+                                <li><a href="http://xianbei.cc/faq/3">成为仙贝的导游</a></li>
+                                <li><a href="http://xianbei.cc/faq/4">费用说明</a></li>
+                                <li><a href="http://xianbei.cc/faq/6">退款政策</a></li>
+                            </ul>
+                            <i class="top" style="left: 20px;"></i>
+                        </div>
+                    </div>
+                    <script>
+                        (function ($) {
+                            $(function () {
+                                $(".header-help").mousemove(function () {
+                                    $(".help-list").show();
+                                });
+                                $(".header-help").mouseleave(function () {
+                                    $(".help-list").hide();
+                                })
+                            });
+                        })(jQuery);
+                    </script>
+                    <div class="header-div" style="line-height: 45px;">
+                        <a href="http://xianbei.cc/plan/create" class="xb-btn-m-org">我要定制</a>
+                    </div>
+                </div>
+
+
+            </ul>
+
+            <div class="clearfix"></div>
+        </div>
+
+    </nav>
+</div>
+<div class="clearfix"></div>
+
+
+<div class="modal fade in" id="login-panel" tabindex="-1" role="dialog" aria-labelledby="login-title"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="login-title">通过以下方式登录</h4>
+            </div>
+
+            <div class="row modal-body">
+                <div class="col-md-12">
+                    <span class="help-block user-pw-input">使用第三方平台账号登录</span>
+
+                    <div class="text-center" style="padding:3px 0 20px 0">
+                        <a href="openid/qq/login" class="btn btn-lg btn-primary" style="width:130px;margin-right:8px;">
+                            <i class="fa fa-qq"></i> QQ登陆
+                        </a><a
+                            href="openid/weibo/login" class="btn btn-lg btn-danger" style="width:130px">
+                        <i class="fa fa-weibo"></i> 微博登陆
+                    </a>
+                    </div>
+                </div>
+                <hr/>
+                <div class="col-md-12">
+
+	            	<span class="help-block user-pw-input">
+	            		<span>仙贝账号&nbsp;&nbsp;&nbsp;&nbsp;</span>
+	            		<a aria-hidden="true" data-dismiss="modal" data-toggle="modal"
+                           href="http://xianbei.cc/#register-panel"></a>
+	            	</span>
+
+                    <div class="clearfix"></div>
+                    <form class="form-horizontal" role="form" method="post" action="http://xianbei.cc/login">
+                        <fieldset>
+                            <div class="input-group user-pw-input">
+	                            <span class="input-group-addon"> <i class="glyphicon glyphicon-envelope"></i>
+	                            </span>
+                                <ul class="emailist"
+                                    style="position: absolute; margin-top: 0px; visibility: hidden; z-index: 11;"></ul>
+                                <input id="login-username" type="text" class="form-control" name="username"
+                                       required="required" value="" placeholder="邮箱"/>
+                            </div>
+                            <div class="input-group user-pw-input">
+	                            <span class="input-group-addon"> <i class="glyphicon glyphicon-lock"></i>
+	                            </span>
+                                <input type="password" class="form-control" name="password" required="required"
+                                       placeholder="密码"/>
+                            </div>
+
+                            <div class="input-group user-pw-input">
+	                            <span class="button-checkbox">
+	                                <div class="icheckbox_minimal-red checked" style="position: relative;"><input
+                                            type="checkbox" class="iCheck" checked="true"
+                                            style="position: absolute; opacity: 0;"/>
+                                        <ins class="iCheck-helper"
+                                             style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins>
+                                    </div>记住登录状态</span>
+
+                                <div class="pull-right"><a href="http://xianbei.cc/password/forget">忘记密码?</a></div>
+
+                            </div>
+                            <script type="text/javascript">
+                                document.write('<input type="hidden" name="BackURL" value="' + window.location.href + '"/>');
+                            </script>
+                            <input type="hidden" name="BackURL" value="http://xianbei.cc/guide/list?city=46"/>
+
+                            <div class="form-group">
+                                <div class="controls user-pw-btn">
+                                    <button class="btn btn-danger form-control">登录</button>
+                                </div>
+                            </div>
+
+                        </fieldset>
+                    </form>
+                </div>
+                <!-- end modal-body -->
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<div class="modal fade" id="register-panel" tabindex="-1" role="dialog" aria-labelledby="register-title"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    ×
+                </button>
+                <h4 class="modal-title" id="register-title">您可以通过以下方式注册！</h4>
+            </div>
+
+            <div class="row modal-body">
+                <div class="col-md-12">
+                    <span class="help-block user-pw-input">使用第三方平台账号登录</span>
+
+                    <div class="text-center" style="padding:3px 0 20px 0">
+                        <a href="http://xianbei.cc/openid/qq/login" class="btn btn-lg btn-primary"
+                           style="width:130px;margin-right:8px;">
+                            <i class="fa fa-qq"></i> QQ登陆
+                        </a><a href="http://xianbei.cc/openid/weibo/login" class="btn btn-lg btn-danger"
+                               style="width:130px">
+                        <i class="fa fa-weibo"></i> 微博登陆
+                    </a>
+                    </div>
+                </div>
+                <hr/>
+               <span class="help-block user-pw-input">
+               		<span>使用邮箱注册仙贝账号&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            		<a href="http://xianbei.cc/password/forget">忘记密码?</a>
+            	</span>
+
+                <form class="form-horizontal" role="form" action="http://xianbei.cc/register" method="POST">
+                    <fieldset>
+                        <div class="input-group user-pw-input">
+                            <span class="input-group-addon"> <i class="glyphicon glyphicon-envelope"> </i>
+                            </span>
+                            <ul class="emailist"
+                                style="position: absolute; margin-top: 0px; visibility: hidden; z-index: 11;"></ul>
+                            <input id="reg-username" type="text" class="form-control" name="email" value=""
+                                   placeholder="邮箱"/>
+                        </div>
+                        <div class="input-group user-pw-input">
+                            <span class="input-group-addon"> <i class="glyphicon glyphicon-lock"> </i>
+                            </span>
+                            <input type="password" class="form-control" name="password" placeholder="密码" value=""/>
+                        </div>
+                        <div class="input-group user-pw-input">
+                            <span class="input-group-addon"> <i class="glyphicon glyphicon-lock"> </i>
+                            </span>
+                            <input type="password" class="form-control" name="password2" placeholder="重复密码" value=""/>
+                        </div>
+                        <div class="input-group user-pw-input">
+                            <span class="input-group-addon"> <i class="glyphicon glyphicon-user"> </i>
+                            </span>
+                            <input value="" type="text" class="form-control" name="nickname"
+                                   placeholder="昵称(中文12个字,英文24个字符以内)"/>
+                        </div>
+                        <div class="form-group">
+                            <div class="controls user-pw-btn">
+                                <button class="btn btn-danger form-control">
+                                    快速注册
+                                </button>
+                            </div>
+                        </div>
+
+                    </fieldset>
+                </form>
+            </div>
+            <!--modal-footer-->
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<script type="text/javascript">
+    (function ($) {
+        $('#reg-username').mailAutoComplete();
+        $('#login-username').mailAutoComplete();
+
+        $(function () {
+            $("#form").mousemove(function () {
+                $(".div_1").show();
+            });
+            $("#form").mouseleave(function () {
+                $(".div_1").hide();
+            })
+        });
+        var dests = $("#dests").val();
+        $.ajax({
+            url: "common/ajaxGuideDest",
+            async: true,
+            cache: false,
+            global: false,
+            dataType: "json",
+            success: function (data) {
+            }
+        });
+
+
+    })(jQuery);
+    function selectCity(obj) {
+        var name = $(obj).attr('name');
+        var id = $(obj).attr('destid');
+        $("#dests").val(id);
+        $("#trip-place-h").val(name);
+        $(".on").removeClass("on");
+        $(obj).addClass("on");
+    }
+    function submit() {
+        $('#form').submitForm();
+    }
+</script>
+<!--Eng: header-->
+<!-- 有城市 -->
+<div style="background:url(../static/images/index/db.jpg) no-repeat 0% 80%;background-size: cover;height:400px;width:100%;position:relative;margin-bottom:25px;">
+    <div class="city_div">
+        <div class="list_city_info">
+            大阪
+        </div>
+        <div class="city_info-count">
+            16位导游&nbsp;&nbsp;7项当地服务
+        </div>
+    </div>
+
+
+    <div class="city_nav_layar">
+    </div>
+    <div class="city_nav_content">
+        <div class="city_nav_content-inner">
+            <ul class="city-nav">
+                <li class="cur">
+                    <a href=".">当地导游</a>
+                </li>
+
+                <li>
+                    <a href="http://xianbei.cc/product/list?city=46">当地服务</a>
+                </li>
+
+                <div class="show-city" onclick="showCity();">
+
+                    <a href="javascript:showCity();" class="header-a selectCity"
+                       style="float: right;color: #FFF;padding: 20px 25px;">更多城市&nbsp;<i
+                            class="fa fa-caret-down"></i></a>
+
+                    <div style="height:50px"></div>
+                    <div class="div_11" style="display: none;">
+                        <div class="citylines"></div>
+                        <div class="div_2" style="border-top: 0px solid #e9e9e9;">
+                            <div class="city" onclick="toPproduct(13)"><span style="color:#666666">东京</span></div>
+                            <div class="city center" onclick="toPproduct(40)"><span style="color:#666666">富士山</span>
+                            </div>
+                            <div class="city" onclick="toPproduct(46)"><span style="color:#666666">大阪</span></div>
+                        </div>
+                        <div class="div_2">
+                            <div class="city" onclick="toPproduct(45)"><span style="color:#666666">京都</span></div>
+                            <div class="city center" onclick="toPproduct(50)"><span style="color:#666666">奈良</span>
+                            </div>
+                            <div class="city" onclick="toPproduct(1)"><span style="color:#666666">北海道</span></div>
+                        </div>
+                        <div class="div_2">
+                            <div class="city" onclick="toPproduct(69)"><span style="color:#666666">冲绳</span></div>
+                            <div class="city center" onclick="toPproduct(31)"><span style="color:#666666">箱根</span>
+                            </div>
+                            <div class="city" onclick="toPproduct(48)"><span style="color:#666666">神户</span></div>
+                        </div>
+                        <div class="div_2">
+                            <div class="city" onclick="toPproduct(42)"><span style="color:#666666">名古屋</span></div>
+                            <div class="city center" onclick="toPproduct(76)"><span style="color:#666666">九州</span>
+                            </div>
+                            <div class="city"><span style="color:#666666">&nbsp;</span></div>
+                        </div>
+                        <div class="citylines"></div>
+                        <div style="text-align: center;height: 45px;line-height: 45px;border-top: 1px solid #e9e9e9;">
+                            不确定去哪？我们为您<a href="http://xianbei.cc/plan/create" style="color:#ff5a5f">行程定制</a></div>
+                    </div>
+                </div>
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="container">
+
+
+    <!-- no-->
+    <div id="middle">
+        <input id="city" value="46" type="hidden"/>
+        <!--搜索列表-->
+        <div class="collection">
+
+
+            <ul class="collect-list list-unstyled">
+
+                <li class="collect-item">
+                    <div class="collect-item-inner">
+                        <a href="http://xianbei.cc/guide/990" target="_blank">
+                            <div class="img cover">
+                                <img data-original="http://img.xianbei.cc/cover/990_3ctpTzqF47.jpg"
+                                     th:src="@{/static/images/index/990_3ctpTzqF47.jpg}"/>
+	             <span class="bg-hover">
+		            <span class="text">一场私人定制的旅行，你准备好了吗？</span>
+		        </span>
+
+                            </div>
+                            <div class="avt">
+                                <div class="nickname pull-left"><b>马原</b></div>
+                                <div class="clearfix"></div>
+                                <div class="work pull-left">
+                                    <img th:src="@{/static/images/index/icon-zhi.png}"/>
+                                    留学生
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="city " style="width: inherit;">
+                                    <img th:src="@{/static/images/index/icon-di.png}"/>
+                                    京都
+                                    大阪
+                                </div>
+                                <div class="hr-line"></div>
+
+                                <div class="price-lables">
+                                    <div class="price-lable">徒步 <b>1000</b> 元/天</div>
+
+                                </div>
+
+                            </div>
+                        </a>
+                    </div>
+                </li>
+
+                <!--  -->
+                <li class="collect-item">
+                    <div class="collect-item-inner">
+                        <a href="http://xianbei.cc/guide/103" target="_blank">
+                            <div class="img cover">
+                                <img data-original="http://img.xianbei.cc/cover/103_i5RbSBYgeL.jpg"
+                                     th:src="@{/static/images/index/103_i5RbSBYgeL.jpg}"/>
+	             <span class="bg-hover">
+		            <span class="text">吃货大叔，带您游关西</span>
+		        </span>
+
+                            </div>
+                            <div class="avt">
+                                <div class="nickname pull-left"><b>blake</b></div>
+                                <div class="clearfix"></div>
+                                <div class="work pull-left">
+                                    <img th:src="@{/static/images/index/icon-zhi.png}"/>
+                                    在读博士
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="city " style="width: inherit;">
+                                    <img th:src="@{/static/images/index/icon-di.png}"/>
+                                    关西
+                                    京都
+                                    大阪
+                                    奈良
+                                </div>
+                                <div class="hr-line"></div>
+
+                                <div class="price-lables">
+                                    <div class="price-lable">带车 <b>2350</b> 元/天</div>
+                                </div>
+
+                            </div>
+                        </a>
+                    </div>
+                </li>
+
+                <!--  -->
+                <li class="collect-item">
+                    <div class="collect-item-inner">
+                        <a href="http://xianbei.cc/guide/594" target="_blank">
+                            <div class="img cover">
+                                <img data-original="http://img.xianbei.cc/cover/594_GZy2I0ZqiS.jpg"
+                                     th:src="@{/static/images/index/594_GZy2I0ZqiS.jpg}"/>
+	             <span class="bg-hover">
+		            <span class="text">在有限的时间里发挥自己对日本的理解，已经对工作的热心， 为您带来一段完美的日本之...</span>
+		        </span>
+
+                            </div>
+                            <div class="avt">
+                                <div class="nickname pull-left"><b>Fredi</b></div>
+                                <div class="clearfix"></div>
+                                <div class="work pull-left">
+                                    <img th:src="@{/static/images/index/icon-zhi.png}"/>
+                                    留学生
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="city " style="width: inherit;">
+                                    <img th:src="@{/static/images/index/icon-di.png}"/>
+                                    大阪
+                                    京都
+                                    奈良
+                                    神戶
+                                </div>
+                                <div class="hr-line"></div>
+
+                                <div class="price-lables">
+                                    <div class="price-lable">徒步 <b>900</b> 元/天</div>
+
+                                </div>
+
+                            </div>
+                        </a>
+                    </div>
+                </li>
+
+                <!--  -->
+                <li class="collect-item">
+                    <div class="collect-item-inner">
+                        <a href="http://xianbei.cc/guide/1013" target="_blank">
+                            <div class="img cover">
+                                <img data-original="http://img.xianbei.cc/cover/1013_62MwSz3WwK.jpg"
+                                     th:src="@{/static/images/index/1013_62MwSz3WwK.jpg}"/>
+	             <span class="bg-hover">
+		            <span class="text">从相遇到相知，每一个擦肩而过都是可惜的。如果可以一起漫步东瀛国，领略这里风土人情...</span>
+		        </span>
+
+                            </div>
+                            <div class="avt">
+                                <div class="nickname pull-left"><b>曹飞</b></div>
+                                <div class="clearfix"></div>
+                                <div class="work pull-left">
+                                    <img th:src="@{/static/images/index/icon-zhi.png}"/>
+                                    程序员
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="city " style="width: inherit;">
+                                    <img th:src="@{/static/images/index/icon-di.png}"/>
+                                    大阪
+                                    奈良
+                                    京都
+                                </div>
+                                <div class="hr-line"></div>
+
+                                <div class="price-lables">
+                                    <div class="price-lable">徒步 <b>1000</b> 元/天</div>
+
+                                    <div class="price-lable">带车 <b>2100</b> 元/天</div>
+                                </div>
+
+                            </div>
+                        </a>
+                    </div>
+                </li>
+
+                <!--  -->
+                <li class="collect-item">
+                    <div class="collect-item-inner">
+                        <a href="http://xianbei.cc/guide/382" target="_blank">
+                            <div class="img cover">
+                                <img data-original="http://img.xianbei.cc/cover/382_4xEzSTUWsh.jpg"
+                                     th:src="@{/static/images/index/382_4xEzSTUWsh.jpg}"/>
+	             <span class="bg-hover">
+		            <span class="text">热爱生活，感恩家人，体贴朋友，就是我</span>
+		        </span>
+
+                            </div>
+                            <div class="avt">
+                                <div class="nickname pull-left"><b>A梦</b></div>
+                                <div class="clearfix"></div>
+                                <div class="work pull-left">
+                                    <img th:src="@{/static/images/index/icon-zhi.png}"/>
+                                    留学生
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="city " style="width: inherit;">
+                                    <img th:src="@{/static/images/index/icon-di.png}"/>
+                                    京都
+                                    大阪
+                                </div>
+                                <div class="hr-line"></div>
+
+                                <div class="price-lables">
+                                    <div class="price-lable">徒步 <b>850</b> 元/天</div>
+
+                                </div>
+
+                            </div>
+                        </a>
+                    </div>
+                </li>
+
+                <!--  -->
+                <li class="collect-item">
+                    <div class="collect-item-inner">
+                        <a href="http://xianbei.cc/guide/1090" target="_blank">
+                            <div class="img cover">
+                                <img data-original="http://img.xianbei.cc/cover/1090_nuvV1mK8JO.jpg"
+                                     th:src="@{/static/images/index/1090_nuvV1mK8JO.jpg}"/>
+	             <span class="bg-hover">
+		            <span class="text">来日本的朋友们，选择我们吧，无论是领导能力，还是工作能力，我们都会给您一个满意的...</span>
+		        </span>
+
+                            </div>
+                            <div class="avt">
+                                <div class="nickname pull-left"><b>赵倩辉</b></div>
+                                <div class="clearfix"></div>
+                                <div class="work pull-left">
+                                    <img th:src="@{/static/images/index/icon-zhi.png}"/>
+                                    专业导游
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="city " style="width: inherit;">
+                                    <img th:src="@{/static/images/index/icon-di.png}"/>
+                                    大阪
+                                    京都
+                                    奈良
+                                    神户
+                                </div>
+                                <div class="hr-line"></div>
+
+                                <div class="price-lables">
+                                    <div class="price-lable">徒步 <b>1000</b> 元/天</div>
+
+                                    <div class="price-lable">带车 <b>2350</b> 元/天</div>
+                                </div>
+
+                            </div>
+                        </a>
+                    </div>
+                </li>
+
+                <!--  -->
+                <li class="collect-item">
+                    <div class="collect-item-inner">
+                        <a href="http://xianbei.cc/guide/150" target="_blank">
+                            <div class="img cover">
+                                <img data-original="http://img.xianbei.cc/cover/150_beZPrtuMnf.jpg"
+                                     th:src="@{/static/images/index/150_beZPrtuMnf.jpg}"/>
+	             <span class="bg-hover">
+		            <span class="text">相遇在日本，让我们一起渡过快乐的时光！</span>
+		        </span>
+
+                            </div>
+                            <div class="avt">
+                                <div class="nickname pull-left"><b>悠悠</b></div>
+                                <div class="clearfix"></div>
+                                <div class="work pull-left">
+                                    <img th:src="@{/static/images/index/icon-zhi.png}"/>
+                                    公司职员
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="city " style="width: inherit;">
+                                    <img th:src="@{/static/images/index/icon-di.png}"/>
+                                    京都
+                                    大阪
+                                    滋賀
+                                    关西
+                                </div>
+                                <div class="hr-line"></div>
+
+                                <div class="price-lables">
+                                    <div class="price-lable">徒步 <b>900</b> 元/天</div>
+
+                                </div>
+
+                            </div>
+                        </a>
+                    </div>
+                </li>
+
+                <!--  -->
+                <li class="collect-item">
+                    <div class="collect-item-inner">
+                        <a href="http://xianbei.cc/guide/319" target="_blank">
+                            <div class="img cover">
+                                <img data-original="http://img.xianbei.cc/cover/319_78y5vM4A6y.jpg"
+                                     th:src="@{/static/images/index/319_78y5vM4A6y.jpg}"/>
+	             <span class="bg-hover">
+		            <span class="text">秉着服务的热情以及的对旅游的热爱，我一定会全力为您带来一段完美的关西之旅！</span>
+		        </span>
+
+                            </div>
+                            <div class="avt">
+                                <div class="nickname pull-left"><b>陈庆键</b></div>
+                                <div class="clearfix"></div>
+                                <div class="work pull-left">
+                                    <img th:src="@{/static/images/index/icon-zhi.png}"/>
+                                    公司职员
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="city " style="width: inherit;">
+                                    <img th:src="@{/static/images/index/icon-di.png}"/>
+                                    大阪
+                                    京都
+                                    神户
+                                    奈良
+                                </div>
+                                <div class="hr-line"></div>
+
+                                <div class="price-lables">
+                                    <div class="price-lable">带车 <b>1800</b> 元/天</div>
+                                </div>
+
+                            </div>
+                        </a>
+                    </div>
+                </li>
+
+                <!--  -->
+                <li></li>
+                <li></li>
+                <li></li>
+                <!-- 当列表元素不是3的倍数时，使用空li补全 -->
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+        <!--分页-->
+        <div class="text-center">
+
+
+            <ul class="pagination">
+                <li class="disabled">
+                    <!--
+                    <span class="label-default" style="color: #666666;"> 首页 </span>
+                     -->
+                </li>
+                <li class="disabled">
+                    <!--
+                    <span class="label-default" style="color: #666666;"> &lt; </span>
+                     -->
+                </li>
+
+                <!--  -->
+                <!--  -->
+                <!--  -->
+
+                <li class="hidden-xs active">
+                    <a href=""> 1 </a>
+                </li>
+                <li class="hidden-xs">
+                    <a href=""> 2 </a>
+                </li>
+
+                <li class="visible-xs-inline">
+		<span style="padding: 6px 12px; height: 34px;">
+			<select onchange="javascript:window.location.href=this.value;"
+                    style="-webkit-appearance: none; background-color: inherit; color: inherit; border: none">
+                <option selected="selected" value="">1/2</option>
+                <option value="">2/2</option>
+            </select>
+		</span>
+                </li>
+                <li class="">
+                    <a rel="next" href="">  &gt;</a>
+                </li>
+                <li class="">
+                    <a rel="next" href=""> 末页 </a>
+                </li>
+            </ul>
+            <link rel="stylesheet" th:href="@{/static/css/index/page.css}"/>
+
+        </div>
+
+    </div>
+    <!--middle-->
+</div>
+<link rel="stylesheet" th:href="@{/static/css/index/footer.css}"/>
+<div id="footer">
+    <div style="width:0px;height:0px;overflow:hidden;"><img th:src="@{/static/images/index/logo-l.png}"/></div>
+    <!-- weixin缩略图 -->
+    <div class="footer-hd">
+        <div class="layout">
+            <div class="col-md-12">
+                <span><a href="http://www.wenjuan.com/s/BZ73yqd/" target="_blank" class="btn"
+                         style="padding-left:25px;padding-right:25px;background-color:#262626;color:#fff">意见反馈</a></span>
+                &nbsp;&nbsp;&nbsp;
+                <span style="color:#FF5A5F">客服微信：xianbei06 </span>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="footer-bd">
+        <div class="layout">
+
+            <div class="links">
+                <div class="col-md-5 col-sm-5" style="width: 386px;">
+                    <div style="">
+                        <div id="fa-telphone400"></div>
+                        <div style="height:45px;line-height:45px;float:left;font-size:28px;color:#DDD;font-weight:600">
+                            客服热线
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div style="font-size:20px;padding:5px 0;color:#DDD;text-align: left;">
+                        <img th:src="@{/static/images/index/dianhua.png}"/>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-2" style="width: 156px;">
+                    <p class="title">公司信息</p>
+
+                    <p class=""><a target="_blank" href="http://xianbei.cc/faq/1">关于我们</a></p>
+
+                    <p class=""><a target="_blank" href="http://xianbei.cc/faq/5">用户协议</a></p>
+
+                    <p class=""><a target="_blank" href="http://xianbei.cc/faq/1#contact">联系我们</a></p>
+
+                    <p class=""><a target="_blank" href="http://xianbei.cc/faq/10">友情链接</a></p>
+                </div>
+
+
+                <div class="col-md-2 col-sm-2" style="width: 156px;">
+                    <p class="title">帮助中心</p>
+
+                    <p class=""><a target="_blank" href="http://xianbei.cc/plan/intro">预定流程</a></p>
+
+                    <p class=""><a target="_blank" href="http://xianbei.cc/faq/4">费用说明</a></p>
+
+                    <p class=""><a target="_blank" href="http://xianbei.cc/faq/6">退款政策</a></p>
+
+                    <p class=""><a target="_blank" href="http://xianbei.cc/guideApplyFast">成为导游</a></p>
+                </div>
+                <div class=" col-md-2 col-sm-2" style="width: 156px;">
+                    <p class="title">服务支持</p>
+
+                    <p class=""><a target="_blank" href="http://xianbei.cc/plan/create">行程定制</a></p>
+
+                    <p class=""><a target="_blank" href="http://xianbei.cc/product/list?labels=3">包车畅游</a></p>
+
+                    <p class=""><a target="_blank" href="http://xianbei.cc/product/list?labels=8">机场接送</a></p>
+
+                    <p class=""><a target="_blank" href="http://xianbei.cc/product/list.html">精品套餐</a></p>
+                </div>
+
+                <div class=" col-md-3 col-sm-3" style="width: 122px;">
+                    <!--  -->
+                    <div class="pull-right">
+                        <p style="text-align: center;">微信公众号</p>
+                        <img style="width:90px" th:src="@{/static/images/index/qr.jpg}"/>
+                    </div>
+                </div>
+
+
+                <div class="clearfix"></div>
+
+            </div>
+            <div class="links" align="center" style="height: 82px;">
+                <a href="javascript:void(0)" style="z-index: 898989;">
+                    <img class="weixinimg" th:src="@{/static/images/index/erweima.png}" style="display: none;"/>
+
+                    <div class="foot_img weixin showweixin">
+                    </div>
+                </a>
+                <a target="_blank" href="http://www.weibo.com/u/5269383334">
+                    <div class="foot_img weibo">
+                    </div>
+                </a>
+                <a target="_blank" href="http://wpa.qq.com/msgrds">
+                    <div class="foot_img qq">
+                    </div>
+                </a>
+            </div>
+            <div class="links" style="border-top: 0px solid #666;padding-top: 5px;">
+                <!--
+                    <div class="col-md-12" style="color:#999">
+                        友情链接：<a style="color:#999" title="日本酒店预订" target="_blank" href="http://travel.rakuten.cn/?scid=we_xbe_hp0001">日本酒店预订</a>&nbsp<a style="color:#999" title="台湾民宿" target="_blank" href="http://minsu.taiwandao.tw">台湾民宿</a>&nbsp<a style="color:#999" title="韩国自由行" target="_blank" href="http://www.zaiseoul.com">韩国自由行</a>&nbsp<a style="color:#999" title="韩你玩" target="_blank" href="http://www.hanniwan.com">韩国民宿</a>&nbsp
+                    </div>
+                     -->
+                <div class="col-md-12">
+                    <div class="text-center" style="margin-left: 116px;">© xianbei.Co.,Ltd.
+                        <div class="pull-right" style="color:#777">京ICP备15004700号</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="pull-left" style="display:none">
+        Ver 0.0.9-SNAPSHOT-9427899 on X.1
+    </div>
+
+
+    <div class="pull-right" style="display:none">
+        <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+        document.write(unescape("%3Cspan id='cnzz_stat_icon_1253068454'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1253068454%26show%3Dpic2' type='text/javascript'%3E%3C/script%3E"));</script>
+        <span id="cnzz_stat_icon_1253068454">
+            <a href="http://www.cnzz.com/stat/website.php?web_id=1253068454" target="_blank" title="站长统计">
+                <img border="0" hspace="0" vspace="0" th:src="@{/static/images/index/pic2.gif}"/>
+            </a>
+        </span>
+        <script th:src="@{/static/js/index/z_stat.php}" type="text/javascript"></script>
+        <script th:src="@{/static/js/index/core.php}" charset="utf-8" type="text/javascript"></script>
+    </div>
+
+</div>
+
+<script>
+    $(function () {
+        $(".nav3").mousemove(function () {
+            $(".nav3-list").show();
+        }).mouseleave(function () {
+            $(".nav3-list").hide();
+        });
+        $(".nav2").click(function () {
+            var width = Math.round((window.screen.width - 800) / 2);
+            var height = Math.round((window.screen.height - 600) / 2);
+        });
+    });
+</script>
+
+
+<script>
+    (function ($) {
+        $.ajax({
+            url: "common/ajaxGuideDest",
+            async: true,
+            cache: false,
+            global: false,
+            dataType: "json",
+            success: function (data) {
+
+            }
+        });
+
+        $(function () {
+            $(".show-city").mousemove(function () {
+                $(".div_11").show();
+            });
+            $(".show-city").mouseleave(function () {
+                $(".div_11").hide();
+            })
+        });
+    })(jQuery);
+    function showCity() {
+        $(".div_11").show();
+    }
+    function toPproduct(id) {
+        window.location.href = "guide/list?city=" + id
+    }
+</script>
+
+<div id="_my97DP" style="position: absolute; top: -1970px; left: -1970px;">
+    <iframe style="width: 202px; height: 217px;" th:src="@{/static/comp/My97DatePicker/My97DatePicker.htm}" frameborder="0" border="0"
+            scrolling="no">
+
+    </iframe>
+</div>
+</body>
+</html>

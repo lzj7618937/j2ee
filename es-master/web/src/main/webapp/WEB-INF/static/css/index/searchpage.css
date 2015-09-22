@@ -1,0 +1,316 @@
+.layout strong.hd {
+    display: block;
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.layout .layout-block {
+    display: inline-block;
+    vertical-align: top;
+    line-height: 2.5em;
+}
+
+.avt-min {
+    display: inline-block;
+    position: relative;
+}
+
+.avt-min .img img {
+    width: 40px;
+    height: 40px;
+}
+
+.guide > .img:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: block;
+    content: "";
+    width: 15px;
+    height: 15px;
+    background: url(../../images/index/icon1.png) no-repeat;
+}
+
+/*=search-mod=*/
+
+.search-traval{
+    margin-bottom: 10px;
+}
+
+.search-gui{
+    margin-bottom: 35px;
+}
+
+.search-gui .search-mod,
+.search-gui .find-mod {
+    height: 305px;
+}
+
+.search-gui .search-mod{
+    width: 592px;
+}
+
+.search-gui .collection{
+    padding-top: 46px;
+}
+
+.search-mod {
+    width: 622px;
+    height: 380px;
+    padding: 15px 35px;
+    border: 1px solid #ddd;
+    color: #666;
+    font-size: 14px;
+}
+
+.search-mod .search-item {
+    padding: 12px 0;
+    /*overflow: hidden;*/
+    border-bottom: 1px solid #ddd;
+}
+
+.search-mod .search-item:last-child {
+    border-bottom: 0 none;
+}
+
+.search-item > .key {
+    float: left;
+}
+
+.search-item > .value {
+    float: right;
+    /*overflow: hidden;*/
+}
+
+.search-item .text {
+    border: 1px solid #ddd;
+    padding: 0px 15px;
+    font-size: 14px;
+    width: 175px;
+}
+
+.search-item .radio,
+.search-item .checkbox {
+    margin-right: 5px;
+}
+
+.search-item .auto-ipt {
+    width: 353px;
+}
+
+.search-item .select {
+    border: 1px solid #ddd;
+    font-size: 14px;
+    width: 165px;
+}
+
+.search-item .radio-list,
+.search-item .checkbox-list {
+    width: 353px;
+    float: right;
+    text-align: left;
+}
+
+.search-ft > .xb-btn-org {
+    width: 100%;
+}
+
+/*=find-mod=*/
+.find-mod {
+    margin-left:15px;
+    width: 347px;
+    height: 380px;
+    padding: 15px 35px;
+    border: 1px solid #ddd;
+    color: #666;
+    font-size: 14px;
+}
+
+.find-mod .find-item {
+    text-align: center;
+    height: 60px;
+    line-height: 40px;
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.find-mod .find-item:last-child {
+    border-bottom: 0 none;
+}
+
+.find-mod .find-item > .avt-min {
+    color: #666;
+    text-decoration: none;
+    height: 40px;
+}
+
+.find-mod .find-item > .avt-min img {
+    display: block;
+}
+
+.find-mod .find-item > .avt-min:first-child {
+    float: left;
+}
+
+.find-mod .find-item > .avt-min:last-child {
+    float: right;
+}
+
+.find-mod .find-item .city,
+.find-mod .find-item .age {
+    display: inline-block;
+    min-width: 20px;
+}
+
+/*=tool-bar=*/
+
+.tool-bar {
+    padding: 17px 35px;
+    line-height: 2.2em;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    color: #666;
+    margin-bottom:10px;
+}
+
+.tool-bar > dt {
+    float: left;
+}
+
+.tool-bar > dd {
+    overflow: hidden;
+}
+
+.tool-bar > dd > .alink {
+    margin-left: 26px;
+    text-decoration: none;
+    color: #666;
+}
+
+.tool-bar > dd > .alink.cur {
+    color: #ff5a5f;
+}
+
+/*=table-mod=*/
+.table-mod {
+    margin-bottom: 50px;
+}
+
+.table-mod > .table-bd {
+    margin-bottom: 20px;
+}
+
+.table-bd > table {
+    width: 100%;
+    table-layout: fixed;
+    text-align: left;
+    font-size: 14px;
+    border: 1px solid #ddd;
+}
+
+.table-bd > table > thead {
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+}
+
+.table-bd > table > thead th {
+    color: #aaa;
+    padding: 26px 0 26px 36px;
+}
+
+.table-bd > table > tbody td {
+    padding: 20px 0 20px 36px;
+    border-bottom: 1px solid #ddd;
+    color: #666;
+}
+
+.table-bd > table > tbody .alink {
+    color: #666;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.table-bd > table > tbody .alink .img {
+    display: inline-block;
+    margin-right: 6px;
+}
+
+.table-bd > table > tbody .alink .img img {
+    width:40px;
+    height:40px;
+}
+
+
+.table-bd > table > tbody .clock {
+    color: #aaa;
+}
+
+/*=page-mod=*/
+.page-mod {
+    padding: 20px 0;
+}
+
+.page-mod .page-hd {
+    color: #aaa;
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+.page-mod .page-bd {
+    overflow: hidden;
+}
+
+.page-mod .page-bd > a,
+.page-mod .page-bd > span {
+    float: left;
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+.page-mod .page-bd > .prev,
+.page-mod .page-bd > .next,
+.page-mod .page-bd > .cur,
+.page-mod .page-bd > .num {
+    position: relative;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    border: 1px solid #ddd;
+    color: #ff5a5f;
+    text-align: center;
+    text-decoration: none;
+}
+
+.page-mod .page-bd > .cur {
+    color: #aaa;
+    background-color: #f5f5f5;
+}
+
+.page-mod .page-bd > .prev > em {
+    position: absolute;
+    left: 10px;
+    top: 8px;
+    display: block;
+    width: 0px;
+    height: 0px;
+    border-bottom: 6px solid transparent; /* left arrow slant */
+    border-top: 6px solid transparent; /* right arrow slant */
+    border-right: 6px solid #ff5a5f; /* bottom, add background color here */
+    font-size: 0px;
+    line-height: 0px;
+}
+
+.page-mod .page-bd > .next > em {
+    position: absolute;
+    left: 12px;
+    top: 8px;
+    display: block;
+    width: 0px;
+    height: 0px;
+    border-bottom: 6px solid transparent; /* left arrow slant */
+    border-top: 6px solid transparent; /* right arrow slant */
+    border-left: 6px solid #ff5a5f; /* bottom, add background color here */
+    font-size: 0px;
+    line-height: 0px;
+}
