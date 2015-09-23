@@ -1,3 +1,21 @@
+$(function () {
+    var slider = new TouchSlider('slider', {
+        duration: 800,
+        interval: 3000,
+        direction: 0,
+        autoplay: true,
+        mousewheel: false,
+        mouse: true,
+        fullsize: true
+    });
+    $("#prev").click(function () {
+        slider.prev();
+    });
+    $("#next").click(function () {
+        slider.next();
+    });
+});
+
 (function ($) {
     var longPolling = function (url, callback) {
         $.ajax({
@@ -141,21 +159,3 @@ $(function () {
     $('#reg-username').mailAutoComplete();
     $('#login-username').mailAutoComplete();
 })(jQuery);
-
-$(function () {
-    var slider = new TouchSlider('slider', {
-        duration: 800,
-        interval: 3000,
-        direction: 0,
-        autoplay: true,
-        mousewheel: false,
-        mouse: true,
-        fullsize: true
-    });
-    $("#prev").click(function () {
-        slider.prev();
-    });
-    $("#next").click(function () {
-        slider.next();
-    });
-});

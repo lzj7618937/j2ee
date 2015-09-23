@@ -700,7 +700,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <jdk.version>1.7</jdk.version>
+        <jdk.version>1.8</jdk.version>
         <support.basedir>${project.parent.basedir}/src/support</support.basedir>
         <site.basedir>${project.parent.basedir}</site.basedir>
 

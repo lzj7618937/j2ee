@@ -61,7 +61,7 @@ public class SearchableTest {
         Assert.assertTrue(searchable1.containsSearchKey("name_like"));
         Assert.assertTrue(searchable1.containsSearchKey("age_eq"));
         Assert.assertEquals("234", searchable1.getValue("name_like"));
-        Assert.assertEquals(1, searchable1.getValue("age_eq"));
+        Assert.assertEquals("1", searchable1.getValue("age_eq"));
         Assert.assertEquals(2, searchable1.getSearchFilters().size());
 
 
