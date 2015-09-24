@@ -93,6 +93,7 @@
                     </dependency>
                 </dependencies>
             </plugin>
+
             <plugin>
                 <groupId>com.googlecode</groupId>
                 <artifactId>maven-db-plugin</artifactId>
@@ -205,7 +206,7 @@
 
     <properties>
         <sishuok.common.version>1.0-SNAPSHOT</sishuok.common.version>
-        <jetty.version>8.1.8.v20121106</jetty.version>
+        <jetty.version>8.1.16.v20140903</jetty.version>
         <tomcat.maven.version>2.2</tomcat.maven.version>
         <support.basedir>${project.parent.parent.basedir}/src/support</support.basedir>
         <site.basedir>${project.parent.parent.basedir}</site.basedir>
