@@ -99,4 +99,6 @@
 请参考<a href='http://jinnianshilongnian.iteye.com/blog/1883013'>加速spring/hibernate应用调试时启动速度</a>
 
 ####4、常见问题
+热部署：
+-noverify -agentpath:/home/jaylee/jrebel_6.2.3-agent-crack/jrebel_6.2.3-agent-crack/lib/libjrebel64.so -Drebel.dirs=/media/jaylee/App/workspaces/git/j2ee/es-master/web/target/classes -Drebel.disable_update=true
 

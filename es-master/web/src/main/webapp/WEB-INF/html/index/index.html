@@ -35,10 +35,6 @@
 </head>
 <body>
 <!--=S 头部=-->
-<div style="overflow: hidden;height: 0px;width: 0px;">
-    <img alt="缩略图实验" th:src="@{/static/images/index/mm.jpg}"/>
-</div>
-
 <div class="header-index">
     <div class="head-bar">
 
@@ -253,27 +249,24 @@
                                 <ul></ul>
                             </div>
                             <div class="bd">
-                                <ul style="max-height: 400px; position: relative; transition: none; width: 4656px; left: 0px;"
-                                    id="slider">
-                                    <li style="float: left; display: inline; width: 1552px;">
+                                <ul id="slider">
+                                    <li>
                                         <a href="http://xianbei.cc/product/list?labels=14" target="_blank">
-                                            <img th:src="@{/static/images/index/3.jpg}"
-                                                 style="width:100%;height:auto;min-width:990px"/>
+                                            <img th:src="@{/static/images/index/3.jpg}"/>
                                         </a>
                                     </li>
-                                    <li style="float: left; display: inline; width: 1552px;">
+                                    <li>
                                         <a href="http://show.xianbei.cc/p/2250" target="_blank">
-                                            <img th:src="@{/static/images/index/4.jpg}"
-                                                 style="width:100%;height:auto;min-width:990px"/>
+                                            <img th:src="@{/static/images/index/4.jpg}"/>
                                         </a>
                                     </li>
-                                    <li style="float: left; display: inline; width: 1552px;">
+                                    <li>
                                         <a href="http://show.xianbei.cc/" target="_blank">
-                                            <img th:src="@{/static/images/index/1.jpg}"
-                                                 style="width:100%;height:auto;min-width:990px"/>
+                                            <img th:src="@{/static/images/index/1.jpg}"/>
                                         </a>
                                     </li>
-                                    <!-- Powered by TouchSlider v2.0.1  https://github.com/qiqiboy/touchslider --></ul>
+                                    <!-- Powered by TouchSlider v2.0.1  https://github.com/qiqiboy/touchslider -->
+                                </ul>
 
                                 <div class="slide_left">
                                     <div class="img" id="prev"></div>

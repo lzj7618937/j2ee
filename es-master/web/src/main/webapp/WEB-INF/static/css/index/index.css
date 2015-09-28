@@ -324,6 +324,15 @@ body {
     cursor: pointer;
     background: url("../../images/index/icon.png") no-repeat -1791px -344px;
 }
+/*
+#slider {
+    max-height: 400px;
+    position: relative;
+    transition: none;
+    width: 4656px;
+    left: 0px;
+}
+*/
 
 /*======== slide end =======*/
 
